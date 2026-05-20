@@ -3,7 +3,7 @@ public class Main {
         System.out.println("Zadanie 1:");
         UserValidator validator = new UserValidator();
         validator.addRule(form -> form.email().contains("@"));
-        validator.addRule(form -> form.password().length() >= 8 );
+        validator.addRule(form -> form.password().length() >= 8);
         validator.addRule(form -> form.age() >= 18);
 
         UserForm form = new UserForm(
@@ -47,5 +47,24 @@ public class Main {
                 order1.total()
         );
         System.out.println(summary);
+
+        System.out.println("Zadanie 4:");
+        LibraryAccount account = new LibraryAccount(
+                "Jan Nowak",
+                3,
+                5
+        );
+        LibraryAccount.FineCalculator calculator1 = account.new FineCalculator();
+        double fine = calculator1.calculate();
+        MessagePrinter printer = message -> System.out.println(
+                "[BIBLIOTEKA]" + message
+        );
+        printer.print(
+                "Czytelnik: "
+                        + account.getReaderName()
+                        + ",opłata: "
+                        + fine
+                        + "zł"
+        );
     }
 }
