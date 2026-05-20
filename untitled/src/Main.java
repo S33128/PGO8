@@ -24,5 +24,28 @@ public class Main {
         System.out.println(calculator.calculate(order, standard));
         System.out.println(calculator.calculate(order, discount));
         System.out.println(calculator.calculate(order, weekend));
+
+        System.out.println("Zadanie 3:");
+        Order order1 = new Order("ORD-100", "Anna Kowalska");
+        order1.addItem(
+                new Order.OrderItem(
+                        "Klawiatura",
+                        249.99,
+                        1
+                )
+        );
+        order1.addItem(
+                new Order.OrderItem(
+                        "Mysz",
+                        99.99,
+                        2
+                )
+        );
+        OrderSummary summary = new OrderSummary(
+                order1.getOrderNumber(),
+                order1.getCustomerName(),
+                order1.total()
+        );
+        System.out.println(summary);
     }
 }
